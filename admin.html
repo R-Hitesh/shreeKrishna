@@ -5,123 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Panel | Shree Krishna Enterprises</title>
   <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <style>
+    .admin-panel {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #f8f8f8;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #218838;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      max-height: 300px;
+      overflow: auto;
+    }
+    .item-list {
+      margin-top: 30px;
+    }
+    .item-row {
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .delete-btn {
+      background: crimson;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-<!-- HEADER -->
-<header class="header">
-  <div class="navbar">
-    <h1><span>Shree Krishna</span> Enterprises</h1>
-    <nav>
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
-      <a href="drink.html"><i class="fas fa-glass-martini-alt"></i> Drinks</a>
-      <a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a>
-      <a href="cart.html"><i class="fas fa-shopping-cart"> </i> Cart </a> 
-           </nav>
+  <div class="admin-panel">
+    <h2>📋 Add Menu Item</h2>
+    <input type="text" id="name" placeholder="Enter Item Name" required />
+    <input type="number" id="price" placeholder="Enter Price (₹)" required />
+    <input type="text" id="image" placeholder="Enter Image URL or path (e.g. images/xyz.jpg)" required />
+    <select id="category">
+      <option value="food">Food</option>
+      <option value="drink">Drink</option>
+    </select>
+    <button onclick="addItem()">Add Item</button>
+
+    <h3>Generated Code (Paste into menu-data.js)</h3>
+    <pre id="output"></pre>
+
+    <div class="item-list" id="itemList"></div>
   </div>
-</header>
 
-<section class="admin-section">
-  <h2>Add New Item</h2>
-  <input type="text" id="itemName" placeholder="Name">
-  <input type="text" id="itemImage" placeholder="Image URL">
-  <input type="number" id="itemPrice" placeholder="Price">
-  <select id="itemCategory">
-    <option value="food">Food</option>
-    <option value="drink">Drink</option>
-  </select>
-  <button onclick="addItem()">Add Item</button>
-</section>
+  <script>
+    let items = JSON.parse(localStorage.getItem('menuItems')) || [];
 
-<section class="admin-section">
-  <h2>Item List</h2>
-  <div id="itemList"></div>
-</section>
+    function addItem() {
+      const name = document.getElementById("name").value.trim();
+      const price = document.getElementById("price").value.trim();
+      const image = document.getElementById("image").value.trim();
+      const category = document.getElementById("category").value;
 
-<footer class="footer">
-  <p>© 2025 Shree Krishna Enterprises</p>
-</footer>
+      if (!name || !price || !image) return alert("Please fill all fields");
 
-<script>
-function getItems(category) {
-  return JSON.parse(localStorage.getItem(category)) || [];
-}
+      const newItem = {
+        id: Date.now(),
+        name,
+        price,
+        image,
+        category
+      };
 
-function saveItems(category, items) {
-  localStorage.setItem(category, JSON.stringify(items));
-}
+      items.push(newItem);
+      localStorage.setItem("menuItems", JSON.stringify(items));
+      renderItems();
+      generateCode();
+      document.getElementById("name").value = "";
+      document.getElementById("price").value = "";
+      document.getElementById("image").value = "";
+    }
 
-function addItem() {
-  const name = document.getElementById("itemName").value;
-  const image = document.getElementById("itemImage").value;
-  const price = document.getElementById("itemPrice").value;
-  const category = document.getElementById("itemCategory").value;
+    function deleteItem(id) {
+      items = items.filter(item => item.id !== id);
+      localStorage.setItem("menuItems", JSON.stringify(items));
+      renderItems();
+      generateCode();
+    }
 
-  if (!name || !image || !price) {
-    alert("Please fill in all fields.");
-    return;
-  }
+    function renderItems() {
+      const list = document.getElementById("itemList");
+      list.innerHTML = "";
+      items.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "item-row";
+        div.innerHTML = `
+          <div>
+            <strong>${item.name}</strong> (₹${item.price}) - <em>${item.category}</em>
+          </div>
+          <button class="delete-btn" onclick="deleteItem(${item.id})">Delete</button>
+        `;
+        list.appendChild(div);
+      });
+    }
 
-  const item = {
-    id: Date.now(),
-    name,
-    image,
-    price,
-    category
-  };
+    function generateCode() {
+      const code = `const menuItems = ${JSON.stringify(items, null, 2)};`;
+      document.getElementById("output").textContent = code;
+    }
 
-  const key = category === 'drink' ? 'drinkItems' : 'menuItems';
-  const items = getItems(key);
-  items.push(item);
-  saveItems(key, items);
-
-  alert("Item added successfully!");
-  document.getElementById("itemName").value = "";
-  document.getElementById("itemImage").value = "";
-  document.getElementById("itemPrice").value = "";
-  renderItems();
-}
-
-function deleteItem(id, category) {
-  const key = category === 'drink' ? 'drinkItems' : 'menuItems';
-  let items = getItems(key);
-  items = items.filter(item => item.id !== id);
-  saveItems(key, items);
-  renderItems();
-}
-
-function renderItems() {
-  const foodItems = getItems("menuItems");
-  const drinkItems = getItems("drinkItems");
-  const itemList = document.getElementById("itemList");
-  itemList.innerHTML = "";
-
-  const renderSection = (title, items, category) => {
-    if (items.length === 0) return;
-    const section = document.createElement("div");
-    section.innerHTML = `<h3>${title}</h3>`;
-    items.forEach(item => {
-      const div = document.createElement("div");
-      div.style.marginBottom = "10px";
-      div.innerHTML = `
-        <strong>${item.name}</strong> - ₹${item.price}
-        <button onclick="deleteItem(${item.id}, '${category}')" class="delete-btn">Delete</button>
-      `;
-      section.appendChild(div);
-    });
-    itemList.appendChild(section);
-  };
-
-  renderSection("Food Items", foodItems, "food");
-  renderSection("Drink Items", drinkItems, "drink");
-}
-
-window.onload = renderItems;
-</script>
-
+    // Init
+    renderItems();
+    generateCode();
+  </script>
 </body>
 </html>

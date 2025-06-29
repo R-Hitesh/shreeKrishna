@@ -1,71 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drink Menu | Shree Krishna Enterprises</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
-<!-- HEADER -->
+
 <header class="header">
   <div class="navbar">
-    <h1><span>Shree Krishna</span> Enterprises</h1>
+    <h1>Drink Menu</h1>
     <nav>
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
-      <a href="drink.html"><i class="fas fa-glass-martini-alt"></i> Drinks</a>
-      <a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a>
-      <a href="cart.html"><i class="fas fa-shopping-cart"> </i> Cart </a> 
-           </nav>
+      <a href="index.html">Home</a>
+      <a href="food.html">Food</a>
+      <a href="admin.html">Admin</a>
+      <a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+    </nav>
   </div>
 </header>
 
 <section class="menu-section">
-  <h2>Cool and Refreshing Drinks</h2>
+  <h2>Refreshing Veg Drinks</h2>
   <div class="menu-container" id="drinkContainer"></div>
 </section>
 
-<footer class="footer">
-  <p>© 2025 Shree Krishna Enterprises | Refresh Your Day!</p>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
+<script src="menu-data.js"></script>
 <script>
   const container = document.getElementById("drinkContainer");
-  const data = JSON.parse(localStorage.getItem("drinkItems")) || [];
+  const cartCount = document.getElementById("cartCount");
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cartCount.innerText = cart.length;
 
-  if (data.length === 0) {
-    container.innerHTML = "<p>No drink items found.</p>";
-  } else {
-    data.forEach(item => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.setAttribute("data-aos", "fade-up");
-      card.innerHTML = `
-        <img src="${item.image}" alt="${item.name}">
-        <h3>${item.name}</h3>
-        <span>₹${item.price}</span><br>
-        <button class="btn" onclick="addToCart(${item.id})">Add to Cart</button>
-      `;
-      container.appendChild(card);
-    });
-  }
+  const drinkItems = menuItems.filter(item => item.category === "drink");
+
+  drinkItems.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" />
+      <h3>${item.name}</h3>
+      <span>₹${item.price}</span><br>
+      <button class="btn" onclick="addToCart(${item.id})">Add to Cart</button>
+    `;
+    container.appendChild(card);
+  });
 
   function addToCart(id) {
-    const allItems = JSON.parse(localStorage.getItem("drinkItems")) || [];
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const selectedItem = allItems.find(item => item.id === id);
-    if (selectedItem) {
-      cart.push(selectedItem);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      alert(`${selectedItem.name} added to cart!`);
-    }
+    const product = menuItems.find(i => i.id === id);
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    cartItems.push(product);
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    cartCount.innerText = cartItems.length;
+    alert(product.name + " added to cart!");
   }
 </script>
+
 </body>
 </html>
