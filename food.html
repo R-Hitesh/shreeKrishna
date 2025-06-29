@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Menu | Shree Krishna Enterprises</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+<body>
+
+<!-- Header with Navbar -->
+<header class="header">
+  <div class="navbar">
+    <h1>Shree Krishna Enterprises</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="food.html">Food</a>
+      <a href="drink.html">Drinks</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Search Bar -->
+<div class="search-wrapper">
+  <input type="text" id="searchInput" placeholder="Search food..." />
+</div>
+
+<!-- Filter Buttons -->
+<div class="filter-buttons">
+  <button class="filter-btn" data-category="all">All</button>
+  <button class="filter-btn" data-category="light">Light Food</button>
+  <button class="filter-btn" data-category="deepfry">Deep Fry</button>
+  <button class="filter-btn" data-category="tandoori">Tandoori Snacks</button>
+  <button class="filter-btn" data-category="soup">Soup</button>
+  <button class="filter-btn" data-category="salad">Salad</button>
+  <button class="filter-btn" data-category="papad">Papad</button>
+  <button class="filter-btn" data-category="dahi">Dahi Ka Dhamaka</button>
+  <button class="filter-btn" data-category="paratha">Paratha</button>
+  <button class="filter-btn" data-category="chinese">Chinese Food</button>
+  <button class="filter-btn" data-category="sizzler">Sizzler</button>
+  <button class="filter-btn" data-category="continental">Continental</button>
+  <button class="filter-btn" data-category="pizza">Pizza</button>
+  <button class="filter-btn" data-category="paneer-special">Paneer Special</button>
+  <button class="filter-btn" data-category="paneer-ka-swaad">Paneer Ka Swaad</button>
+  <button class="filter-btn" data-category="sada-bahar">Sada Bahar Ka Swad</button>
+  <button class="filter-btn" data-category="kofta">Kofta Se</button>
+  <button class="filter-btn" data-category="rice">Rice</button>
+  <button class="filter-btn" data-category="dal">Dal Ka Swad</button>
+  <button class="filter-btn" data-category="rajasthani">Rajasthani Swad</button>
+  <button class="filter-btn" data-category="tandoori-ki-den">Tandoori Ki Den</button>
+</div>
+
+<!-- Food Cards -->
+<section class="menu-section">
+  <h2>Delicious Pure Veg Food Items</h2>
+  <div class="menu-container">
+
+    <!-- 20+ cards here -->
+    <div class="card" data-category="light" data-aos="fade-up">
+      <img src="images/light_food.jpeg" alt="Light Food">
+      <h3>Light Food</h3>
+      <p>Nutritious and easy-to-digest meals for all times.</p>
+      <a href="lightfood.html" class="btn"> light food menu</a>
+    </div>
+
+    <div class="card" data-category="deepfry" data-aos="fade-up">
+      <img src="images/deep_fry.jpeg" alt="Deep Fry Specials">
+      <h3>Deep Fry Specials</h3>
+      <p>Crispy treats like samosa, pakora, and more.</p>
+      <a href="deaffry.html" class="btn"> Deaf Fry Specials</a>
+    </div>
+
+    <div class="card" data-category="tandoori" data-aos="fade-up">
+      <img src="images/tandoori_snacks.jpeg" alt="Tandoori Snacks">
+      <h3>Tandoori Snacks</h3>
+      <p>Authentic tandoori flavors grilled to perfection.</p>
+      <a href="tandoori_snacks.html" class="btn">Tandoori Snacks</a>
+    </div>
+
+    <div class="card" data-category="soup" data-aos="fade-up">
+      <img src="images/soup.jpeg" alt="Soup">
+      <h3>Veg Soup</h3>
+      <p>Hot & healthy vegetable soups to warm your soul.</p>
+      <a href="soup.html" class="btn"> Soup</a>
+    </div>
+
+    <div class="card" data-category="salad" data-aos="fade-up">
+      <img src="images/salad.jpeg" alt="Salad">
+      <h3>Fresh Salad</h3>
+      <p>Colorful salad with seasonal vegetables & dressings.</p>
+      <a href="salad.html" class="btn">Salad</a>
+    </div>
+
+    <div class="card" data-category="papad" data-aos="fade-up">
+      <img src="images/papad.jpeg" alt="Papad">
+      <h3>Papad Platter</h3>
+      <p>Roasted, fried, and masala papads served crisp.</p>
+    <a href="papad.html" class="btn"> Papad</a>
+    </div>
+
+    <div class="card" data-category="dahi" data-aos="fade-up">
+      <img src="images/dahi_dhamaka.jpeg" alt="Dahi Ka Dhamaka">
+      <h3>Dahi Ka Dhamaka</h3>
+      <p>Curd-based delights: Dahi Bhalla, Raita, and more.</p>
+      <a href="dahi_ka_dhamaka.html" class="btn">Dahi Ka Dhamaka</a>
+    </div>
+
+    <div class="card" data-category="paratha" data-aos="fade-up">
+      <img src="images/paratha.jpeg" alt="Paratha Specials">
+      <h3>Paratha Specials</h3>
+      <p>Stuffed parathas served with chutney & curd.</p>
+    <a href="paratha.html" class="btn"> Parathe Ka Swad</a>
+    </div>
+
+    <div class="card" data-category="chinese" data-aos="fade-up">
+      <img src="images/chinese.jpeg" alt="Chinese Food">
+      <h3>Chinese Veg</h3>
+      <p>Manchurian, noodles, fried rice & more.</p>
+  <a href="chinese_food.html" class="btn">Chinese Veg </a>
+    </div>
+
+    <div class="card" data-category="sizzler" data-aos="fade-up">
+      <img src="images/sizzler.jpeg" alt="Veg Sizzler">
+      <h3>Veg Sizzler</h3>
+      <p>Hot sizzling platter of grilled vegetables & rice.</p>
+      <a href="sizlar.html" class="btn">sizlar(3)</a>
+    </div>
+
+    <div class="card" data-category="continental" data-aos="fade-up">
+      <img src="images/continental.jpeg" alt="Continental">
+      <h3>Continental Combo</h3>
+      <p>Global vegetarian flavours on one plate.</p>
+      <a href="continental.html" class="btn">Continental</a>
+    </div>
+
+    <div class="card" data-category="pizza" data-aos="fade-up">
+      <img src="images/pizza.jpeg" alt="Veg Pizza">
+      <h3>Veg Pizza</h3>
+      <p>Cheesy delight with seasonal veggie toppings.</p>
+      <a href="pizza.html" class="btn">Pizza</a>
+    </div>
+
+    <div class="card" data-category="paneer-special" data-aos="fade-up">
+      <img src="images/paneer.jpeg" alt="Paneer Butter Masala">
+      <h3>Paneer Butter Masala</h3>
+      <p>Soft paneer cubes in a rich creamy gravy.</p>
+      <a href="paneer_special.html" class="btn" >Paneer Butter Masala</a>
+    </div>
+
+    <div class="card" data-category="paneer-ka-swaad" data-aos="fade-up">
+      <img src="images/paneer_tikka.jpeg" alt="Paneer Tikka">
+      <h3>Paneer Tikka</h3>
+      <p>Grilled spiced paneer skewers from the tandoor.</p>
+      <a href="paneer_ka_swaad.html" class="btn">Paneer Tikka</a>
+    </div>
+
+   <!--- <div class="card" data-category="sada-bahar" data-aos="fade-up">
+      <img src="images/mix_veg.jpeg" alt="Mix Veg">
+      <h3>Sada Bahar Mix Veg</h3>
+      <p>Evergreen mixed vegetable sabzi with desi touch.</p>
+      <span class="btn">₹130</span>
+    </div> -->
+
+    <div class="card" data-category="kofta" data-aos="fade-up">
+      <img src="images/malai_kofta.jpeg" alt="Malai Kofta">
+      <h3>Malai Kofta</h3>
+      <p>Soft koftas in creamy white gravy.</p>
+<a href="kofta_se.html" class="btn"> Kofta Se</a>
+    </div>
+
+    <div class="card" data-category="rice" data-aos="fade-up">
+      <img src="images/biryani.jpeg" alt="Veg Biryani">
+      <h3>Veg Biryani</h3>
+      <p>Spiced basmati rice with fresh vegetables.</p>
+      <a href="rice.html" class="btn">Veg Biryani</a>
+    </div>
+
+    <div class="card" data-category="dal" data-aos="fade-up">
+      <img src="images/dal_tadka.jpeg" alt="Dal Tadka">
+      <h3>Dal Tadka</h3>
+      <p>Yellow lentils tempered with desi ghee & spices.</p>
+    <a href="dal_tadka.html" class="btn">Dal Tadka</a>
+    </div>
+
+    <div class="card" data-category="rajasthani" data-aos="fade-up">
+      <img src="images/rajasthani_thali.jpeg" alt="Rajasthani Thali">
+      <h3>Rajasthani Thali</h3>
+      <p>Daal Baati, Churma, and traditional Rajasthani sabzis.</p>
+      <a href="rajasthanithali.html" class="btn">Rajasthani Thali</a>
+    </div>
+
+    <div class="card" data-category="tandoori-ki-den" data-aos="fade-up">
+      <img src="images/tandoori_roti.jpeg" alt="Tandoori Roti">
+      <h3>Tandoori Ki Den</h3>
+      <p>Rotis & naans fresh from the clay oven.</p>
+      <a href="tandoori.html" class="btn">Tandoori ki den</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span id="modalClose">&times;</span>
+    <img id="modalImg" src="" alt="food" />
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <span id="modalPrice" class="btn"></span>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2025 Shree Krishna Enterprises | 100% Veg Food Only</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Modal logic
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.getElementById("modalImg").src = card.querySelector("img").src;
+      document.getElementById("modalTitle").innerText = card.querySelector("h3").innerText;
+      document.getElementById("modalDesc").innerText = card.querySelector("p").innerText;
+      document.getElementById("modalPrice").innerText = card.querySelector("span").innerText;
+      document.getElementById("modal").style.display = "flex";
+    });
+  });
+
+  document.getElementById("modalClose").onclick = function () {
+    document.getElementById("modal").style.display = "none";
+  };
+
+  // Search Filter
+  document.getElementById("searchInput").addEventListener("input", function () {
+    const filter = this.value.toLowerCase();
+    document.querySelectorAll(".card").forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(filter) ? "block" : "none";
+    });
+  });
+
+  // Category Filter
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-category');
+      cards.forEach(card => {
+        const match = card.getAttribute('data-category');
+        card.style.display = (category === 'all' || match === category) ? 'block' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

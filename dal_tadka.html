@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <title>Dal & Khichadi | Shree Krishna Enterprises</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    .paratha-section {
+      padding: 2rem 1rem;
+      background: linear-gradient(to right, #fffde7, #ffecb3);
+      text-align: center;
+    }
+
+    .paratha-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 260px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 0.5rem 0 0;
+      color: #111;
+    }
+
+    .card p {
+      padding: 0 1rem;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .card span {
+      display: inline-block;
+      margin: 1rem;
+      background: #ef6c00;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="navbar">
+    <h1>Shree Krishna Enterprises</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="food.html">Food</a>
+      <a href="drink.html">Drinks</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<section class="paratha-section" data-aos="fade-up">
+  <h2>🍲 Dal & Khichadi Specials</h2>
+  <div class="menu-container">
+
+    <!-- Cards -->
+    <div class="card"><img src="images/dal-tadka.jpg" alt="Dal Tadka" /><h3>Dal Tadka</h3><p>Yellow dal tempered with spices and ghee.</p><span>₹90</span></div>
+    <div class="card"><img src="images/dal-fry.jpg" alt="Dal Fry" /><h3>Dal Fry</h3><p>Thick dal cooked with onion and tomato masala.</p><span>₹100</span></div>
+    <div class="card"><img src="images/dal-punjabi.jpg" alt="Dal Punjabi" /><h3>Dal Punjabi</h3><p>Rich Punjabi-style dal with bold flavor.</p><span>₹110</span></div>
+    <div class="card"><img src="images/dal-makhani.jpg" alt="Dal Makhani" /><h3>Dal Makhani</h3><p>Black dal simmered in cream and butter.</p><span>₹120</span></div>
+    <div class="card"><img src="images/butter-dal-fry.jpg" alt="Butter Dal Fry" /><h3>Butter Dal Fry</h3><p>Classic dal fry finished with dollop of butter.</p><span>₹110</span></div>
+    <div class="card"><img src="images/dal-handi.jpg" alt="Dal Handi" /><h3>Dal Handi</h3><p>Slow-cooked dal in handi with rich aroma.</p><span>₹115</span></div>
+    <div class="card"><img src="images/hing-jeera-dal.jpg" alt="Hing Jeera Dal" /><h3>Hing Jeera Dal</h3><p>Tempered with asafoetida and cumin for punch.</p><span>₹95</span></div>
+    <div class="card"><img src="images/dal-khichadi.jpg" alt="Dal Khichadi" /><h3>Dal Khichadi</h3><p>Comfort food made with dal and rice mix.</p><span>₹100</span></div>
+    <div class="card"><img src="images/veg-khichadi.jpg" alt="Veg Khichadi" /><h3>Veg Khichadi</h3><p>Healthy khichadi with added vegetables.</p><span>₹105</span></div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 Shree Krishna Enterprises | Satisfying Dal & Khichadi Flavors!</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>

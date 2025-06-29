@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drink Menu | Shree Krishna Enterprises</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+<body>
+
+<!-- Header with Navbar -->
+<header class="header">
+  <div class="navbar">
+    <h1>Shree Krishna Enterprises</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="food.html">Food</a>
+      <a href="drink.html">Drinks</a>
+      <a href="admin.html">Admin</a>
+
+    </nav>
+  </div>
+</header>
+
+<!-- Search Bar -->
+<div class="search-wrapper">
+  <input type="text" id="searchInput" placeholder="Search drinks..." />
+</div>
+
+<!-- Drink Cards -->
+<section class="menu-section drink-theme">
+  <h2>Refreshing Veg Drinks Only</h2>
+  <div class="menu-container">
+
+    <div class="card" data-category="milk" data-aos="fade-up">
+      <img src="images/lassi.jpeg" alt="Sweet Lassi" />
+      <h3>Sweet Lassi</h3>
+      <p>Cool and refreshing yogurt-based drink.</p>
+      <span class="btn">₹60</span>
+    </div>
+
+    <div class="card" data-category="hot" data-aos="fade-up">
+      <img src="images/masala_chai.jpeg" alt="Masala Chai" />
+      <h3>Masala Chai</h3>
+      <p>Strong tea brewed with Indian spices.</p>
+      <span class="btn">₹20</span>
+    </div>
+
+    <div class="card" data-category="fruit" data-aos="fade-up">
+      <img src="images/juice.jpeg" alt="Fresh Juice" />
+      <h3>Fresh Juice</h3>
+      <p>Choose orange, watermelon, or pineapple juice.</p>
+      <span class="btn">₹80</span>
+    </div>
+
+    <div class="card" data-category="milk" data-aos="fade-up">
+      <img src="images/cold_coffee.jpeg" alt="Cold Coffee" />
+      <h3>Cold Coffee</h3>
+      <p>Chilled coffee with milk and chocolate drizzle.</p>
+      <span class="btn">₹90</span>
+    </div>
+
+    <div class="card" data-category="milk" data-aos="fade-up">
+      <img src="images/mango_shake.jpeg" alt="Mango Shake" />
+      <h3>Mango Shake</h3>
+      <p>Seasonal mango pulp blended with milk and ice.</p>
+      <span class="btn">₹70</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal for card preview -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span id="modalClose">&times;</span>
+    <img id="modalImg" src="" alt="drink" />
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <span id="modalPrice" class="btn"></span>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2025 Shree Krishna Enterprises | 100% Veg Drinks Only</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // Modal logic
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.getElementById("modalImg").src = card.querySelector("img").src;
+      document.getElementById("modalTitle").innerText = card.querySelector("h3").innerText;
+      document.getElementById("modalDesc").innerText = card.querySelector("p").innerText;
+      document.getElementById("modalPrice").innerText = card.querySelector("span").innerText;
+      document.getElementById("modal").style.display = "flex";
+    });
+  });
+
+  document.getElementById("modalClose").onclick = function () {
+    document.getElementById("modal").style.display = "none";
+  };
+
+  // Search Filter
+  document.getElementById("searchInput").addEventListener("input", function () {
+    const filter = this.value.toLowerCase();
+    document.querySelectorAll(".card").forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(filter) ? "block" : "none";
+    });
+  });
+
+  // Category Filter
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-category');
+      cards.forEach(card => {
+        const match = card.getAttribute('data-category');
+        card.style.display = (category === 'all' || match === category) ? 'block' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

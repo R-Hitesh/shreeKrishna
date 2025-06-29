@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paratha Menu | Shree Krishna Enterprises</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    .paratha-section {
+      padding: 2rem 1rem;
+      background: linear-gradient(to right, #fff3e0, #ffe0b2);
+      text-align: center;
+    }
+
+    .paratha-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .menu-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 260px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 0.5rem 0 0;
+      color: #111;
+    }
+
+    .card p {
+      padding: 0 1rem;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .card span {
+      display: inline-block;
+      margin: 1rem;
+      background: #ef6c00;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="navbar">
+    <h1>Shree Krishna Enterprises</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="food.html">Food</a>
+      <a href="drink.html">Drinks</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<section class="paratha-section" data-aos="fade-up">
+  <h2>🫓 Paratha & Naan Specials</h2>
+  <div class="menu-container">
+    <div class="card"><img src="images/plain-naan-curd.jpg" alt="Plain Naan with Curd" /><h3>Plain Naan with Curd</h3><p>Soft tandoori naan served with fresh curd.</p><span>₹50</span></div>
+    <div class="card"><img src="images/aloo-paratha-curd.jpg" alt="Aloo Paratha with Curd" /><h3>Aloo Paratha with Curd</h3><p>Spiced potato-stuffed paratha with curd.</p><span>₹60</span></div>
+    <div class="card"><img src="images/gobhi-paratha-curd.jpg" alt="Gobhi Paratha with Curd" /><h3>Gobhi Paratha with Curd</h3><p>Cauliflower stuffed paratha served hot with curd.</p><span>₹65</span></div>
+    <div class="card"><img src="images/aloo-pyaz-paratha-curd.jpg" alt="Aloo Pyaz Paratha with Curd" /><h3>Aloo Pyaz Paratha with Curd</h3><p>Stuffed with onion & potato, served with curd.</p><span>₹70</span></div>
+    <div class="card"><img src="images/paneer-paratha-curd.jpg" alt="Paneer Paratha with Curd" /><h3>Paneer Paratha with Curd</h3><p>Paneer-stuffed paratha served with dahi.</p><span>₹80</span></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 Shree Krishna Enterprises | Hot Parathas, Fresh Taste!</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>
