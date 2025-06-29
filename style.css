@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #f0f9ff, #e0f7fa);
+  background: linear-gradient(to right, #edeeef, #edeeef);
   color: #333;
   margin: 0;
   padding: 0;
@@ -101,8 +101,8 @@ img {
 .card span {
   display: inline-block;
   margin-top: 0.5rem;
-  color: white;
-  background: #36d1dc;
+  color: rgb(255, 34, 34);
+  background: #f8feff;
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-weight: bold;
@@ -112,7 +112,7 @@ img {
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
-  background: #36d1dc;
+  background: #ff0000;
   color: white;
   text-decoration: none;
   border-radius: 8px;
@@ -120,15 +120,35 @@ img {
 }
 
 .btn:hover {
-  background: #5b86e5;
+  background: #ff7b00;
 }
-
 .footer {
-  background: #2c3e50;
+  background: linear-gradient(to right, #f59e0b, #ef4444);
   color: white;
   text-align: center;
   padding: 1rem 0;
   font-size: 0.9rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.social-links {
+  margin-top: 8px;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 8px;
+  font-size: 18px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffeaa7;
+  transform: scale(1.2);
 }
 
 /* Modal */

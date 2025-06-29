@@ -1,244 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin | Add New Products</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 0;
-    }
-    .header {
-      background: linear-gradient(to right, #5b86e5, #36d1dc);
-      color: #fff;
-      padding: 20px;
-    }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .navbar nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    .admin-section, .menu-section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    form {
-      display: grid;
-      gap: 1rem;
-    }
-    input, select, button {
-      padding: 0.8rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-    button {
-      background-color: #5b86e5;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background-color: #3b66c5;
-    }
-    .menu-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: 0.3s;
-      position: relative;
-    }
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-    .card h3, .card p {
-      margin: 10px;
-    }
-    .btn {
-      display: block;
-      margin: 10px;
-      color: #fff;
-      background: #5b86e5;
-      padding: 0.5rem;
-      border-radius: 8px;
-      text-align: center;
-    }
-    .delete-btn {
-      background-color: #e74c3c;
-      color: white;
-      padding: 0.4rem;
-      margin: 0 10px 10px;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      align-items: center;
-      justify-content: center;
-    }
-    .modal-content {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 500px;
-      text-align: center;
-    }
-    .modal-content img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-    #modalClose {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 28px;
-      color: white;
-      cursor: pointer;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: white;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Shree Krishna Enterprises</title>
+  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
-
+<!-- HEADER -->
 <header class="header">
   <div class="navbar">
-    <h1>Admin Panel - Shree Krishna Enterprises</h1>
+    <h1><span>Shree Krishna</span> Enterprises</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="food.html">Food Menu</a>
-      <a href="drink.html">Drink Menu</a>
-    </nav>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
+      <a href="drink.html"><i class="fas fa-glass-martini-alt"></i> Drinks</a>
+      <a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a>
+      <a href="cart.html"><i class="fas fa-shopping-cart"> </i> Cart </a> 
+           </nav>
   </div>
 </header>
 
 <section class="admin-section">
-  <h2>Add New Product</h2>
-  <form id="adminForm">
-    <input type="text" id="title" placeholder="Title" required />
-    <input type="text" id="desc" placeholder="Description" required />
-    <input type="text" id="img" placeholder="Image Path (e.g. images/item.jpg)" required />
-    <input type="number" id="price" placeholder="Price ₹" required />
-    <select id="category" required>
-      <option value="food">Food</option>
-      <option value="drink">Drink</option>
-    </select>
-    <button type="submit">Add Product</button>
-  </form>
+  <h2>Add New Item</h2>
+  <input type="text" id="itemName" placeholder="Name">
+  <input type="text" id="itemImage" placeholder="Image URL">
+  <input type="number" id="itemPrice" placeholder="Price">
+  <select id="itemCategory">
+    <option value="food">Food</option>
+    <option value="drink">Drink</option>
+  </select>
+  <button onclick="addItem()">Add Item</button>
 </section>
 
-<section class="menu-section">
-  <h2>Live Preview</h2>
-  <div class="menu-container" id="previewContainer"></div>
+<section class="admin-section">
+  <h2>Item List</h2>
+  <div id="itemList"></div>
 </section>
-
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span id="modalClose">&times;</span>
-    <img id="modalImg" src="" alt="Preview" />
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-    <span id="modalPrice" class="btn"></span>
-  </div>
-</div>
 
 <footer class="footer">
-  <p>© 2025 Shree Krishna Enterprises | Admin Access Only</p>
+  <p>© 2025 Shree Krishna Enterprises</p>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-AOS.init();
+function getItems(category) {
+  return JSON.parse(localStorage.getItem(category)) || [];
+}
 
-document.getElementById("adminForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+function saveItems(category, items) {
+  localStorage.setItem(category, JSON.stringify(items));
+}
 
-  const title = document.getElementById("title").value;
-  const desc = document.getElementById("desc").value;
-  const img = document.getElementById("img").value;
-  const price = document.getElementById("price").value;
-  const category = document.getElementById("category").value;
+function addItem() {
+  const name = document.getElementById("itemName").value;
+  const image = document.getElementById("itemImage").value;
+  const price = document.getElementById("itemPrice").value;
+  const category = document.getElementById("itemCategory").value;
 
-  const product = { title, desc, img, price };
-
-  // Store separately by category
-  const key = category === "food" ? "foodProducts" : "drinkProducts";
-  const existing = JSON.parse(localStorage.getItem(key) || "[]");
-  existing.push(product);
-  localStorage.setItem(key, JSON.stringify(existing));
-
-  alert(`${category} item added successfully!`);
-
-  // Preview
-  const container = document.getElementById("previewContainer");
-  const card = document.createElement("div");
-  card.classList.add("card");
-  card.setAttribute("data-aos", "fade-up");
-  card.innerHTML = `
-    <img src="${img}" alt="${title}" />
-    <h3>${title}</h3>
-    <p>${desc}</p>
-    <span class="btn">₹${price}</span>
-    <button class="delete-btn">Delete</button>
-  `;
-  container.appendChild(card);
-  AOS.refresh();
-
-  card.querySelector("img").addEventListener("click", () => {
-    document.getElementById("modalImg").src = img;
-    document.getElementById("modalTitle").innerText = title;
-    document.getElementById("modalDesc").innerText = desc;
-    document.getElementById("modalPrice").innerText = `₹${price}`;
-    document.getElementById("modal").style.display = "flex";
-  });
-
-  card.querySelector(".delete-btn").addEventListener("click", () => {
-    card.remove();
-  });
-
-  this.reset();
-});
-
-document.getElementById("modalClose").onclick = function () {
-  document.getElementById("modal").style.display = "none";
-};
-window.onclick = function (event) {
-  if (event.target === document.getElementById("modal")) {
-    document.getElementById("modal").style.display = "none";
+  if (!name || !image || !price) {
+    alert("Please fill in all fields.");
+    return;
   }
-};
+
+  const item = {
+    id: Date.now(),
+    name,
+    image,
+    price,
+    category
+  };
+
+  const key = category === 'drink' ? 'drinkItems' : 'menuItems';
+  const items = getItems(key);
+  items.push(item);
+  saveItems(key, items);
+
+  alert("Item added successfully!");
+  document.getElementById("itemName").value = "";
+  document.getElementById("itemImage").value = "";
+  document.getElementById("itemPrice").value = "";
+  renderItems();
+}
+
+function deleteItem(id, category) {
+  const key = category === 'drink' ? 'drinkItems' : 'menuItems';
+  let items = getItems(key);
+  items = items.filter(item => item.id !== id);
+  saveItems(key, items);
+  renderItems();
+}
+
+function renderItems() {
+  const foodItems = getItems("menuItems");
+  const drinkItems = getItems("drinkItems");
+  const itemList = document.getElementById("itemList");
+  itemList.innerHTML = "";
+
+  const renderSection = (title, items, category) => {
+    if (items.length === 0) return;
+    const section = document.createElement("div");
+    section.innerHTML = `<h3>${title}</h3>`;
+    items.forEach(item => {
+      const div = document.createElement("div");
+      div.style.marginBottom = "10px";
+      div.innerHTML = `
+        <strong>${item.name}</strong> - ₹${item.price}
+        <button onclick="deleteItem(${item.id}, '${category}')" class="delete-btn">Delete</button>
+      `;
+      section.appendChild(div);
+    });
+    itemList.appendChild(section);
+  };
+
+  renderSection("Food Items", foodItems, "food");
+  renderSection("Drink Items", drinkItems, "drink");
+}
+
+window.onload = renderItems;
 </script>
+
 </body>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Shree Krishna Enterprises</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .card {
+      position: relative;
+    }
+    .card .delete-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 6px 8px;
+      cursor: pointer;
+    }
+    .card .delete-btn:hover {
+      background: red;
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="navbar">
+    <h1>Shree Krishna Enterprises</h1>
+    <nav>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
+      <a href="drink.html"><i class="fas fa-glass-martini-alt"></i> Drinks</a>
+      <a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a>
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart (<span id="cartCount">0</span>)</a>
+    </nav>
+  </div>
+</header>
+
+<section class="menu-section">
+  <h2>Your Cart</h2>
+  <div class="menu-container" id="cartContainer"></div>
+  <div style="text-align: center; margin-top: 20px;">
+    <button class="btn" id="orderNow">Order Now on WhatsApp</button>
+    <button class="btn" id="clearCart" style="background: crimson; margin-left: 10px;">Clear Cart</button>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2025 Shree Krishna Enterprises</p>
+</footer>
+
+<script>
+  const container = document.getElementById("cartContainer");
+  let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartCount = document.getElementById("cartCount");
+  cartCount.textContent = cartItems.length;
+
+  function renderCart() {
+    container.innerHTML = "";
+    if (cartItems.length === 0) {
+      container.innerHTML = "<p>Your cart is empty.</p>";
+      cartCount.textContent = "0";
+      return;
+    }
+
+    cartItems.forEach((item, index) => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <button class="delete-btn" onclick="removeFromCart(${index})"><i class='fas fa-times'></i></button>
+        <img src="${item.image}" alt="${item.name}">
+        <h3>${item.name}</h3>
+        <span>₹${item.price}</span>
+      `;
+      container.appendChild(card);
+    });
+    cartCount.textContent = cartItems.length;
+  }
+
+  function removeFromCart(index) {
+    cartItems.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    renderCart();
+  }
+
+  document.getElementById("orderNow").addEventListener("click", () => {
+    if (cartItems.length === 0) return alert("Cart is empty");
+
+    let message = "*Order Details*%0A";
+    cartItems.forEach((item, index) => {
+      message += `${index + 1}. ${item.name} - ₹${item.price}%0A`;
+    });
+    const total = cartItems.reduce((sum, item) => sum + Number(item.price), 0);
+    message += `%0ATotal: ₹${total}`;
+
+    const whatsappURL = `https://wa.me/7239802505?text=${message}`;
+    window.open(whatsappURL, "_blank");
+
+    // Clear cart after order
+    localStorage.removeItem("cart");
+    cartItems = [];
+    renderCart();
+  });
+
+  document.getElementById("clearCart").addEventListener("click", () => {
+    if (confirm("Are you sure you want to clear the cart?")) {
+      localStorage.removeItem("cart");
+      cartItems = [];
+      renderCart();
+    }
+  });
+
+  renderCart();
+</script>
+
+</body>
+</html>

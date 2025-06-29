@@ -2,62 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shree Krishna Enterprises</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-<header class="header fancy-header">
+<!-- HEADER -->
+<header class="header">
   <div class="navbar">
-    <div class="brand">
-      <h1><span>Shree Krishna</span> Enterprises</h1>
-      
-    </div>
-    <nav class="main-nav">
+    <h1><span>Shree Krishna</span> Enterprises</h1>
+    <nav>
       <a href="index.html"><i class="fas fa-home"></i> Home</a>
       <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
       <a href="drink.html"><i class="fas fa-glass-martini-alt"></i> Drinks</a>
       <a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a>
-    </nav>
+      <a href="cart.html"><i class="fas fa-shopping-cart"> </i> Cart </a> 
+           </nav>
   </div>
 </header>
 
+<!-- CATEGORY SECTION -->
+<section class="menu-section">
+  <h2>🍴 Explore Our Categories</h2>
+  <div class="menu-container" id="categoryCards"></div>
+</section>
 
-  <!-- FOOD SECTION -->
-  <section class="menu-section food-theme" data-aos="fade-up">
-    
-    <h2>🍛 Explore Our Food</h2>
-    <div class="menu-container single">
-      <div class="card">
-        <img src="images/food-banner.jpeg" alt="Food Items" />
-        <h3>Delicious Dishes</h3>
-        <p>From North Indian favorites to street-style delights.</p>
-        <a href="food.html" class="btn">See Food Menu</a>
-      </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Shree Krishna Enterprises</p>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/7239802505"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</footer>
 
-            <div class="card">
-        <img src="images/drink-banner.jpeg" alt="Drink Items" />
-        <h3>Cool & Refreshing</h3>
-        <p>Lassis, shakes, juices — everything to refresh your soul.</p>
-        <a href="drink.html" class="btn">See Drink Menu</a>
-      </div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script>
+  const container = document.getElementById("categoryCards");
+  const foodItems = JSON.parse(localStorage.getItem("menuItems")) || [];
+  const drinkItems = JSON.parse(localStorage.getItem("drinkItems")) || [];
 
+  const categories = [
+    {
+      title: "Food Menu",
+      link: "food.html",
+      image: foodItems[0]?.image || "images/food-banner.jpeg",
+      desc: "Pure Veg Dishes to Satisfy Hunger",
+    },
+    {
+      title: "Drink Menu",
+      link: "drink.html",
+      image: drinkItems[0]?.image || "images/drink-banner.jpeg",
+      desc: "Cool & Refreshing Beverages",
+    }
+  ];
 
-    </div>
+  categories.forEach(cat => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.setAttribute("data-aos", "zoom-in");
+    card.innerHTML = `
+      <img src="${cat.image}" alt="${cat.title}" />
+      <h3>${cat.title}</h3>
+      <p>${cat.desc}</p>
+      <a href="${cat.link}" class="btn">Explore</a>
+    `;
+    container.appendChild(card);
+  });
+</script>
 
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>© 2025 Shree Krishna Enterprises | Crafted with ❤️ and spices!</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
 </body>
 </html>
