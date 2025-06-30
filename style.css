@@ -288,3 +288,130 @@ body.dark-mode {
     font-size: 0.9rem;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffefc;
+  color: #333;
+  padding: 1rem;
+}
+
+/* Header/Nav */
+.header {
+  background-color: #f59e0b;
+  padding: 1rem;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+}
+
+.navbar nav a {
+  margin: 0 0.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.admin-section {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #fff8f1;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.admin-section input,
+.admin-section select,
+.admin-section button {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  max-width: 400px;
+  display: block;
+}
+
+#itemList div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#itemList img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.delete-btn {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  margin-left: auto;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color: #f59e0b;
+  color: white;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #itemList div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delete-btn {
+    margin-top: 10px;
+  }
+}
