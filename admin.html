@@ -1,126 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin Panel | Shree Krishna Enterprises</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<!-- HEADER -->
-<header class="header">
-  <div class="navbar">
-    <h1><span>Shree Krishna</span> Enterprises</h1>
-    <nav>
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
-      <a href="drink.html"><i class="fas fa-glass-martini-alt"></i> Drinks</a>
-      <a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a>
-      <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>
-    </nav>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="navbar">
+      <h1><span>Shree Krishna</span> Enterprises</h1>
+      <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="food.html"><i class="fas fa-utensils"></i> Food</a>
+        <a href="drink.html"><i class="fas fa-glass-martini-alt"></i> Drinks</a>
+        <a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a>
+        <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="admin-section">
-  <h2>Add New Item</h2>
-  <input type="text" id="itemName" placeholder="Name">
-  <input type="text" id="itemImage" placeholder="Image URL">
-  <input type="number" id="itemPrice" placeholder="Price">
-  <select id="itemCategory">
-    <option value="food">Food</option>
-    <option value="drink">Drink</option>
-  </select>
-  <button onclick="addItem()">Add Item</button>
-</section>
+  <!-- FORM SECTION -->
+ <!-- ADMIN SECTION -->
+<div class="admin-wrapper">
+  <section class="admin-section">
+    <h2>Add New Item</h2>
+    <input type="text" id="itemName" placeholder="Item Name" />
+    <input type="text" id="itemImage" placeholder="Image URL" />
+    <input type="number" id="itemPrice" placeholder="Price (₹)" />
+    <select id="itemCategory">
+      <option value="food">Food</option>
+      <option value="drink">Drink</option>
+    </select>
+    <button onclick="addItem()">Add Item</button>
+  </section>
 
-<section class="admin-section">
-  <h2>Item List</h2>
-  <div id="itemList"></div>
-</section>
+  <section class="admin-section">
+    <h2>Item List</h2>
+    <div id="itemList"></div>
+  </section>
+</div>
+>
 
-<footer class="footer">
-  <p>© 2025 Shree Krishna Enterprises</p>
-</footer>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>🍽 Shree Krishna Enterprises</h3>
+        <p>Serving quality food & beverages with love and tradition. Your satisfaction is our priority.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <nav>
+          <ul>
+       <li> <a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+       <li><a href="food.html"><i class="fas fa-utensils"></i> Food</a> </li>
+      <li> <a href="drink.html"><i class="fas fa-glass-martini-alt"></i> Drinks</a></li>
+       <li> <a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a></li>
+        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+      </nav>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Main Market, Ramganjmandi(Kota), Rajasthan, India</p>
+        <p><i class="fas fa-phone"></i> +91 9876543210</p>
+        <p><i class="fas fa-envelope"></i> contact@shreekrishna.com</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Shree Krishna Enterprises | Designed with ❤️ by HeshSoftware</p>
+    </div>
+  </footer>
 
-<script>
-function getItems(category) {
-  return JSON.parse(localStorage.getItem(category)) || [];
-}
+  <!-- SCRIPT -->
+  <script>
+    function getItems(category) {
+      return JSON.parse(localStorage.getItem(category)) || [];
+    }
 
-function saveItems(category, items) {
-  localStorage.setItem(category, JSON.stringify(items));
-}
+    function saveItems(category, items) {
+      localStorage.setItem(category, JSON.stringify(items));
+    }
 
-function addItem() {
-  const name = document.getElementById("itemName").value;
-  const image = document.getElementById("itemImage").value;
-  const price = document.getElementById("itemPrice").value;
-  const category = document.getElementById("itemCategory").value;
+    function addItem() {
+      const name = document.getElementById("itemName").value;
+      const image = document.getElementById("itemImage").value;
+      const price = document.getElementById("itemPrice").value;
+      const category = document.getElementById("itemCategory").value;
 
-  if (!name || !image || !price) {
-    alert("Please fill in all fields.");
-    return;
-  }
+      if (!name || !image || !price) {
+        alert("Please fill in all fields.");
+        return;
+      }
 
-  const item = {
-    id: Date.now(),
-    name,
-    image,
-    price,
-    category
-  };
+      const item = {
+        id: Date.now(),
+        name,
+        image,
+        price,
+        category
+      };
 
-  const key = category === 'drink' ? 'drinkItems' : 'menuItems';
-  const items = getItems(key);
-  items.push(item);
-  saveItems(key, items);
+      const key = category === 'drink' ? 'drinkItems' : 'menuItems';
+      const items = getItems(key);
+      items.push(item);
+      saveItems(key, items);
 
-  alert("Item added successfully!");
-  document.getElementById("itemName").value = "";
-  document.getElementById("itemImage").value = "";
-  document.getElementById("itemPrice").value = "";
-  renderItems();
-}
+      alert("Item added successfully!");
+      document.getElementById("itemName").value = "";
+      document.getElementById("itemImage").value = "";
+      document.getElementById("itemPrice").value = "";
+      renderItems();
+    }
 
-function deleteItem(id, category) {
-  const key = category === 'drink' ? 'drinkItems' : 'menuItems';
-  let items = getItems(key);
-  items = items.filter(item => item.id !== id);
-  saveItems(key, items);
-  renderItems();
-}
+    function deleteItem(id, category) {
+      const key = category === 'drink' ? 'drinkItems' : 'menuItems';
+      let items = getItems(key);
+      items = items.filter(item => item.id !== id);
+      saveItems(key, items);
+      renderItems();
+    }
 
-function renderItems() {
-  const foodItems = getItems("menuItems");
-  const drinkItems = getItems("drinkItems");
-  const itemList = document.getElementById("itemList");
-  itemList.innerHTML = "";
+    function renderItems() {
+      const foodItems = getItems("menuItems");
+      const drinkItems = getItems("drinkItems");
+      const itemList = document.getElementById("itemList");
+      itemList.innerHTML = "";
 
-  const renderSection = (title, items, category) => {
-    if (items.length === 0) return;
-    const section = document.createElement("div");
-    section.innerHTML = `<h3>${title}</h3>`;
-    items.forEach(item => {
-      const div = document.createElement("div");
-      div.style.marginBottom = "10px";
-      div.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" style="width: 80px; height: auto; border-radius: 6px; margin-right: 10px; vertical-align: middle;">
-        <strong>${item.name}</strong> - ₹${item.price}
-        <button onclick="deleteItem(${item.id}, '${category}')" class="delete-btn">Delete</button>
-      `;
-      section.appendChild(div);
-    });
-    itemList.appendChild(section);
-  };
+      const renderSection = (title, items, category) => {
+        if (items.length === 0) return;
+        const section = document.createElement("div");
+        section.innerHTML = `<h3>${title}</h3>`;
+        items.forEach(item => {
+          const div = document.createElement("div");
+          div.innerHTML = `
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;width:100%;">
+              <img src="${item.image}" alt="${item.name}">
+              <strong>${item.name}</strong> - ₹${item.price}
+              <button onclick="deleteItem(${item.id}, '${category}')" class="delete-btn">Delete</button>
+            </div>
+          `;
+          section.appendChild(div);
+        });
+        itemList.appendChild(section);
+      };
 
-  renderSection("Food Items", foodItems, "food");
-  renderSection("Drink Items", drinkItems, "drink");
-}
+      renderSection("Food Items", foodItems, "food");
+      renderSection("Drink Items", drinkItems, "drink");
+    }
 
-window.onload = renderItems;
-</script>
-
+    window.onload = renderItems;
+  </script>
 </body>
 </html>
