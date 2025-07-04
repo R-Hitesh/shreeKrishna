@@ -7,39 +7,52 @@
   --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #edeeef, #edeeef);
-  color: #333;
+/*=====================
+  RESET + BASE STYLES
+=====================*/
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  color: #333;
   transition: background 0.3s, color 0.3s;
 }
 
 img {
   max-width: 100%;
-  border-radius: 12px;
   display: block;
+  border-radius: 12px;
 }
 
+/*=====================
+  HEADER & NAVBAR
+=====================*/
 .header {
-  background: linear-gradient(to right, red, orange);
-  padding: 1rem 2rem;
+  background: linear-gradient(to right, #ef4444, #f59e0b);
   color: white;
+  padding: 1rem 2rem;
   text-align: center;
   width: 100%;
   box-shadow: var(--shadow);
 }
-header h1 {
 
-  margin: 0;
-  
-}
 .navbar {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  margin: 0;
 }
 
 .navbar nav a {
@@ -47,15 +60,13 @@ header h1 {
   margin: 0 10px;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s;
 }
 
 .navbar nav a:hover {
   text-decoration: underline;
 }
 
-.theme-switch {
-  cursor: pointer;
-}
 
 .menu-section {
   padding: 2rem 1rem;
@@ -268,7 +279,7 @@ body.dark-mode {
 /* === Responsive Design === */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     text-align: center;
   }
 
@@ -420,8 +431,8 @@ body {
 /* Footer */
 .footer {
   text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  padding: 0;
+  margin-top: 0;
   background-color: #f59e0b;
   color: white;
 }
@@ -429,12 +440,12 @@ body {
 /* Responsive Design */
 @media screen and (max-width: 600px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   }
 
   #itemList div {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   }
 
@@ -461,7 +472,7 @@ body {
 }
 
 .navbar {
-  max-width: 1200px;
+  width: 100%;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -568,7 +579,7 @@ body {
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
   }
 
@@ -896,4 +907,335 @@ text-align: center;
 
 .admin-section button:hover {
   background-color: #e65c00;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=====================
+  ROOT VARIABLES
+=====================*/
+:root {
+  --primary: #f59e0b;
+  --background: #fff8f1;
+  --text: #1f2937;
+  --card-bg: #fff;
+  --card-radius: 10px;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*=====================
+  RESET + BASE STYLES
+=====================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+/*=====================
+  HEADER & NAVBAR
+=====================*/
+.header {
+  background: linear-gradient(to right, #ef4444, #f59e0b);
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  width: 100%;
+  box-shadow: var(--shadow);
+  margin: 0;
+}
+
+.navbar {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.navbar nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+  text-decoration: underline;
+}
+
+/*=====================
+  MENU CARDS
+=====================*/
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+
+.card {
+  background: var(--card-bg);
+  color: var(--text);
+  width: 260px;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 0.5rem 0 0;
+}
+
+.card p {
+  padding: 0 1rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.card span {
+  margin-top: 0.5rem;
+  color: rgb(255, 34, 34);
+  background: #f8feff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #ff0000;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #ff7b00;
+}
+
+/*=====================
+  ADMIN PANEL
+=====================*/
+.admin-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f9f9f9;
+  padding: 40px 20px;
+}
+
+.admin-section {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.admin-section input,
+.admin-section select,
+.admin-section button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.admin-section button {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.admin-section button:hover {
+  background-color: #e65c00;
+}
+
+#itemList div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 10px;
+  background: #f2f2f2;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+#itemList img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+/*=====================
+  FOOTER
+=====================*/
+.footer {
+  background: linear-gradient(to right, #f59e0b, #ef4444);
+  color: #fff;
+  padding: 40px 0 10px;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.footer h3,
+.footer h4,
+.footer p,
+.footer a {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-social a {
+  color: #fff;
+  margin-right: 12px;
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  font-size: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 10px;
+}
+
+/*=====================
+  RESPONSIVE DESIGN
+=====================*/
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .admin-section {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  #itemList div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delete-btn {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar nav a,
+  .btn {
+    font-size: 0.9rem;
+  }
 }
