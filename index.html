@@ -11,7 +11,7 @@
 <body>
 
 <!-- HEADER -->
-<!-- HEADER -->
+<!-- HEADER --> 
 <header class="header">
   <div class="navbar">
     <h1><span>Shree Krishna</span> Enterprises</h1>
@@ -39,6 +39,46 @@
       <p>Serving quality food & beverages with love and tradition. Your satisfaction is our priority.</p>
     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- SIDEBAR TOGGLE BUTTON -->
+<div class="sidebar-toggle" onclick="toggleSidebar()">
+  <i class="fas fa-bars"></i>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <div class="close-btn" onclick="toggleSidebar()"><i class="fas fa-times"></i></div>
+  <h2>Menu</h2>
+  <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="food.html"><i class="fas fa-utensils"></i> Food</a></li>
+    <li><a href="drink.html"><i class="fas fa-glass-martini-alt"></i> Drinks</a></li>
+    <li><a href="admin.html"><i class="fas fa-user-cog"></i> Admin</a></li>
+    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+  </ul>
+</div>
+
+
+  
+
+
+
+
+
+
+
+
     <div class="footer-links">
         <h4>Quick Links</h4>
         <nav>
@@ -56,7 +96,7 @@
       <h4>Contact Us</h4>
       <p><i class="fas fa-map-marker-alt"></i> Ramganjmandi (Kota), Rajasthan</p>
       <p><i class="fas fa-phone"></i> +91 9876543210</p>
-      <p><i class="fas fa-envelope"></i> contact@shreekrishna.com</p>
+      <p><i class="fas fa-envelope"></i> contact @shreekrishna.com</p>
       <div class="footer-social">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -80,18 +120,19 @@
   const foodItems = JSON.parse(localStorage.getItem("menuItems")) || [];
   const drinkItems = JSON.parse(localStorage.getItem("drinkItems")) || [];
 
+  
   const categories = [
     {
       title: "Food Menu",
       link: "food.html",
       image: foodItems[0]?.image || "images/food-banner.jpeg",
-      desc: "Pure Veg Dishes to Satisfy Hunger",
+      desc: "",
     },
     {
       title: "Drink Menu",
       link: "drink.html",
       image: drinkItems[0]?.image || "images/drink-banner.jpeg",
-      desc: "Cool & Refreshing Beverages",
+      desc: "",
     }
   ];
 
@@ -107,6 +148,16 @@
     `;
     container.appendChild(card);
   });
+
+
+
+
+
+
+  function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    sidebar.classList.toggle("active");
+  }
 </script>
 
 </body>
